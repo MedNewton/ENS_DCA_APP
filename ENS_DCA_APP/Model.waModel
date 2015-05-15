@@ -1,2 +1,187 @@
-{    "toJSON": true,    "dbInfo": [{        "name": "Model",        "uuid": ""    }],    "extraProperties": {        "version": "1",        "classes": {        },        "model": {            "scriptMode": "manual"
-        }    },    "dataClasses": []}
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Compte": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 25,
+						"Y": 20
+					}
+				}
+			},
+			"Message": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 437,
+						"Y": 91
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
+			"lastScriptLocation": {
+				"Compte": {
+					"computed": "Compte/Compte-events.js"
+				}
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "Compte",
+			"className": "Compte",
+			"collectionName": "CompteCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "login",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "password",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "nom",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "prenom",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "nomComplet",
+					"kind": "calculated",
+					"scope": "public",
+					"type": "string",
+					"scriptKind": "javascript",
+					"onGet": [
+						{
+							"from": "$mainModel.Compte.nomComplet.onGet",
+							"userDefined": true
+						}
+					],
+					"onSet": [
+						{
+							"from": "$mainModel.Compte.nomComplet.onSet",
+							"userDefined": true
+						}
+					]
+				},
+				{
+					"name": "tel",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "email",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "type",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "messageCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "MessageCollection",
+					"reversePath": true,
+					"path": "source"
+				},
+				{
+					"name": "messageCollection_1",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "MessageCollection",
+					"reversePath": true,
+					"path": "destination"
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"className": "Message",
+			"collectionName": "MessageCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "titre",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "texte",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "date",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "source",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Compte",
+					"path": "Compte"
+				},
+				{
+					"name": "destination",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Compte",
+					"path": "Compte"
+				}
+			]
+		}
+	],
+	"type": []
+}

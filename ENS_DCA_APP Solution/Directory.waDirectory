@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<directory>
-	<group ID="01000000000000000000000000000000" name="Admin">
+﻿<?xml version="1.0" encoding="UTF-8"?><directory>
+	<user name="admin" ID="20CD04CD2D5AC548B16937323FC66831" fullName="Super admin" password="9f2d4282ce33bea7ea2b7b4e03c2fbc5"/>
+	<user ID="C0D805205EF6C247B0A2274CDC7ED1D8" name="newton" fullName="Med newton" password="db2c4e684e0bc73243b47e607eedfffd"/>
+	<user ID="507ACD26FE67C34B9486B5F281BABFA6" name="sohaib" fullName="Ammou Sohaib" password="dc9f96ef7ca2f11cd5c87c6ff741afb6"/>
+	<group name="Admin" ID="01000000000000000000000000000000" fullName="Admin">
+		<include user="admin" userID="20CD04CD2D5AC548B16937323FC66831"/>
+	</group>
+	<group name="Etudiant" ID="58C46D513C569840AE957A99293C3E08" fullName="Etudiant">
+		<include user="newton" ID="C0D805205EF6C247B0A2274CDC7ED1D8"/>
+	</group>
+	<group name="Enseignant" ID="51A1FF5A2DA7AC4FBB70CB777793E50A" fullName="Enseignant">
+		<include user="sohaib" ID="507ACD26FE67C34B9486B5F281BABFA6"/>
 	</group>
 </directory>
-
